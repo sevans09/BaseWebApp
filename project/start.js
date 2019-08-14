@@ -11,6 +11,14 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
   response.render('pages/index');
+}); 
+
+app.get('/about', function(request, response) {
+  response.render('pages/index');
+});
+
+app.get('/projects', function(request, response) {
+  response.render('pages/index');
 });
 
 app.listen(app.get('port'), function() {
