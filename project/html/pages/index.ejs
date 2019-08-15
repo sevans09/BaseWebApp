@@ -1,23 +1,31 @@
 <html lang="en">
 <head>
-    <% include ../helpers/head %>
+  <% include ../helpers/head %>
 </head>
 
 <body>
   <!-- the classes 'page-header' and 'btn btn-dark' create bootstrap components.  -->
   <!-- Check out more components here: http://getbootstrap.com/components/ -->
   <div class="page-header">
-
+    <% include ../helpers/navbar %>
   
-    <h1>Main</h1>
+    <h1>API Web App</h1>
+    </div>
+
+    <input class="search" type="text" placeholder="Enter city name">
+    <button type="button" onClick="searchWeather()">Search</button>
+
+    <div class="error-message"></div>
+
+  <div class="city">
+
   </div>
 
-  <p>Click on the button for a surprise.</p>
+  <div class="temp">
 
-  <button onClick="showPicture()" class="btn btn-dark">Click me</button>
+  </div>
 
-  <div id="image"></div>
-  
+
 </body>
 
 </html>

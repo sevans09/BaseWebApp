@@ -10,7 +10,6 @@
 <!-- Google font CSS -->
 <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
 
-var apiKey = '<%= process.env.API_KEY %>';
 
 <!-- this app's own css -->
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -24,6 +23,9 @@ var apiKey = '<%= process.env.API_KEY %>';
 
 <!-- then bootstrap -->
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- API key -->
+<script>var apiKey="<%= process.env.API_KEY%>";</script>
 
 <!-- then our app's own js file -->
 <script src="js/main.js"></script>
