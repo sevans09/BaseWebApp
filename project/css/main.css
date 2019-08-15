@@ -1,13 +1,13 @@
 
 body {
-  font-family: Arial, serif;
+  font-family: 'Poppins', serif;
   text-align: center;
-  color: #343a40;
-  font-size: 22px;
+  color: #424242;
+  font-size: 28px;
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Impact', sans-serif;
   font-weight: 700;
   margin-top: 40px;
   font-size: 48px;
@@ -22,8 +22,8 @@ button {
 }
 
 .page-header {
-  background-color: #00bda5;
-  padding-top: 40px;
+  background-color: #424242;
+  padding-top: 30px;
   padding-bottom: 80px;
   color: #ffffff;
 }

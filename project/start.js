@@ -13,18 +13,14 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 }); 
 
-app.get('/about', function(request, response) {
-  response.render('pages/about');
+app.get('/weather', function(request, response) {
+  response.render('pages/weather');
 });
 
-app.get('/projects', function(request, response) {
-  response.render('pages/projects');
+app.get('/btc', function(request, response) {
+  response.render('pages/btc');
 });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
-
-// This file is what handles incoming requests and
-// serves files to the browser, or executes server-side code
