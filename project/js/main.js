@@ -50,8 +50,15 @@
  	$(".btcPrice").text("");
 
  	$.ajax(url,{success: function(data){
- 		console.log(data);
- 		$(".btcPrice").text(data);
+
+ 		var jsonData = JSON.parse(data);   
+		console.log(jsonData.time.updated);
+ 		$(".generationTime").text(jsonData.time.updated);
+
+
+ 		console.log(jsonData);
+ 		$(".btcPrice").text(jsonData.bpi.USD.rate);
+
  	}, error: function(error){
  		$(".error-message").text("An error occured");
  	}})
@@ -75,8 +82,7 @@
 
  	$.ajax(url,{success: function(data){
  		console.log(data);
- 		var jsonData = JSON.parse(data);
- 		//alert(jsonData.slip.advice);      
+ 		var jsonData = JSON.parse(data);   
 		console.log(jsonData.slip.advice)
  		$(".advice").text(jsonData.slip.advice);
  	}, error: function(error){
