@@ -21,6 +21,11 @@ app.get('/btc', function(request, response) {
   response.render('pages/btc');
 });
 
+app.get('/advice', function(request, response) {
+  response.render('pages/advice');
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+

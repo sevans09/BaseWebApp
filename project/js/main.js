@@ -41,3 +41,47 @@
 	// ...
 	});
  }
+
+
+
+ function getBTC() {
+ 	var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+ 	$(".btcPrice").text("");
+
+ 	$.ajax(url,{success: function(data){
+ 		console.log(data);
+ 		$(".btcPrice").text(data);
+ 	}, error: function(error){
+ 		$(".error-message").text("An error occured");
+ 	}})
+ }
+
+ function get31Days() {
+ 	var url = "https://api.coindesk.com/v1/bpi/historical/close.json";
+
+ 	$.ajax(url,{success: function(data){
+ 		console.log(data);
+ 		$(".lastMonthPrices").text(data.bpi);
+ 	}, error: function(error){
+ 		$(".error-message").text("An error occured");
+ 	}})
+ }
+ 
+ 
+ function getAdvice() {
+ 	var url = " https://api.adviceslip.com/advice";
+
+
+ 	$.ajax(url,{success: function(data){
+ 		console.log(data);
+ 		var jsonData = JSON.parse(data);
+ 		//alert(jsonData.slip.advice);      
+		console.log(jsonData.slip.advice)
+ 		$(".advice").text(jsonData.slip.advice);
+ 	}, error: function(error){
+ 		$(".error-message").text("An error occured");
+ 	}})
+
+}
+ 
