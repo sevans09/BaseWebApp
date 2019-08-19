@@ -69,7 +69,13 @@
 
  	$.ajax(url,{success: function(data){
  		console.log(data);
- 		$(".lastMonthPrices").text(data.bpi);
+
+ 		var jsonData = JSON.parse(data); 
+ 		for (var i = 0; i < jsonData.bpi.length; i++) {
+ 			var dayPrice = jsonData.bpi[i];
+ 			$(".lastMonthPrices").text(jsonData);
+ 		}
+ 		//$(".lastMonthPrices").text(data);
  	}, error: function(error){
  		$(".error-message").text("An error occured");
  	}})
@@ -90,4 +96,55 @@
  	}})
 
 }
+
+
+function handleSignIn() {
+	var provider = new firebase.auth.GoogleAuthProvider();
+
+	firebase.auth().signInWithPopup(provider).then(function(result) {
+		var token = result.credential.accessToken;
+		var user = result.user;
+		console.log(user.email);
+	}).catch(function(error) {
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		var email = error.email;
+		var credential = error.credental;
+	});
+}
+
+function addMessage(postTitle, postBody) {
+	var postData = {
+		title: postTitle,
+		body: postBody
+	}
+
+	var database = firebase.database().ref("posts");
+
+	var newPostRef = database.push();
+	newPostRef.set(postData, function(error) {
+		if (error) {
+
+		} else {
+			window.location.reload();
+		}
+	});
+}
+
+function handleMessageFormSubmit(){
+	var postTitle = $("#post-title").val();
+	var postBody = $("#post-body").val();
+	addMessage(postTitle, postBody);
+}
  
+function getposts() {
+	return firebase.database().ref("posts").once('value').then(function(snapshot) {
+		var posts = snapshot.val();
+		console.log(posts);
+
+		for (var postKey in posts) {
+			var post = posts[postKey];
+			$("#post-listing").append("<div>"+post.title+" - "+post.body+"</div>");
+		}
+		});
+}
