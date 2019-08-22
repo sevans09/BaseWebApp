@@ -155,7 +155,7 @@ function getPosts() {
 }
 
 function getEarthPic() {
-	var url = "https://api.nasa.gov/planetary/apod?api_key="+NASA_API_KEY;
+	var url = "https://api.nasa.gov/planetary/apod?api_key="+nasaAPIKey;
 
  	$.ajax(url,{success: function(data){
  		console.log(data);
