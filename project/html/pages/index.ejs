@@ -6,31 +6,25 @@
 <body>
   <!-- the classes 'page-header' and 'btn btn-dark' create bootstrap components.  -->
   <!-- Check out more components here: http://getbootstrap.com/components/ -->
-  <div class="page-header">
+  <div class="page-headecr">
     <% include ../helpers/navbar %>
   
-    <h1>API Web App</h1>
+    <h1>Database Web App</h1>
     </div>
-
-    <input class="search" type="text" placeholder="Enter city name">
-    <button type="button" onClick="searchWeather()">Search</button>
-
     <button onClick="handleSignIn()">Login</button>
+
+    <form onSubmit="handleMessageFormSubmit()"action="#">
+      <br>Name:<br>
+      <input id="post-name">
+      <br>Workout:<br>
+      <textarea id="post-workout"></textarea>
+      <br>Distance:<br>
+      <textarea id="post-distance"></textarea>
+      <br><button>Submit</button><br>
+    </form>
+
+    <div id="post-listing"></div>
     <div class="error-message"></div>
 
-  <div class="city">
-
-  </div>
-
-  <div class="maxTemp">
-
-  </div>
-
-  <div class="minTemp">
-
-  </div>
-
-
 </body>
-
 </html>
