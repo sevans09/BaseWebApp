@@ -1,3 +1,7 @@
+$(document).ready(function(){
+	getPosts();
+})
+
 
  function getWeather(searchQuery) {
  	var url = "https://api.openweathermap.org/data/2.5/weather?q="+searchQuery+"&units=imperial&APPID="+apiKey;
@@ -7,7 +11,6 @@
  	$(".minTemp").text("");
 
  	$.ajax(url,{success: function(data){
- 		console.log(data);
  		$(".city").text(data.name);
  		$(".maxTemp").text(data.main.temp_max);
  		$(".minTemp").text(data.main.temp_min);
@@ -44,7 +47,7 @@
 
 
 
- function getBTC() {
+function getBTC() {
  	var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
  	$(".btcPrice").text("");
@@ -62,14 +65,20 @@
  	}, error: function(error){
  		$(".error-message").text("An error occured");
  	}})
- }
+}
 
- function get31Days() {
+function get31Days() {
  	var url = "https://api.coindesk.com/v1/bpi/historical/close.json";
 
  	$.ajax(url,{success: function(data){
  		console.log(data);
- 		$(".lastMonthPrices").text(data.bpi);
+
+ 		var jsonData = JSON.parse(data); 
+ 		for (var i = 0; i < jsonData.bpi.length; i++) {
+ 			var dayPrice = jsonData.bpi[i];
+ 			$(".lastMonthPrices").text(jsonData);
+ 		}
+ 		//$(".lastMonthPrices").text(data);
  	}, error: function(error){
  		$(".error-message").text("An error occured");
  	}})
@@ -78,7 +87,6 @@
  
  function getAdvice() {
  	var url = " https://api.adviceslip.com/advice";
-
 
  	$.ajax(url,{success: function(data){
  		console.log(data);
@@ -90,4 +98,73 @@
  	}})
 
 }
+
+function handleSignIn() {
+	var provider = new firebase.auth.GoogleAuthProvider();
+
+	firebase.auth().signInWithPopup(provider).then(function(result) {
+		var token = result.credential.accessToken;
+		var user = result.user;
+		console.log(user.email);
+	}).catch(function(error) {
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		var email = error.email;
+		var credential = error.credental;
+	});
+}
+
+function addMessage(postName, postWorkout, postDistance) {
+	var postData = {
+		name: postName,
+		workout: postWorkout,
+		distance: postDistance
+	}
+
+	var database = firebase.database().ref("posts");
+
+	var newPostRef = database.push();
+	newPostRef.set(postData, function(error) {
+		if (error) {
+			$(".error-message").text("An error occured");
+		} else {
+			//'Data saved successfully';
+			window.location.reload();
+		}
+	});
+}
+
+function handleMessageFormSubmit(){
+	var postName = $("#post-name").val();
+	var postWorkout = $("#post-workout").val();
+	var postDistance = $("#post-distance").val();
+	addMessage(postName, postWorkout, postDistance);
+	window.alert("Added a " + postWorkout + " workout for " + postName);
+}
  
+function getPosts() {
+	return firebase.database().ref("posts").once('value').then(function(snapshot) {
+		var posts = snapshot.val();
+		console.log(posts);
+
+		for (var postKey in posts) {
+			var post = posts[postKey];
+			$("#post-listing").append("<div>"+post.name+": "+post.workout+" for " + post.distance+"</div>");
+		}
+	});
+}
+
+function getEarthPic() {
+	var url = "https://api.nasa.gov/planetary/apod?api_key="+NASA_API_KEY;
+
+ 	$.ajax(url,{success: function(data){
+ 		console.log(data);
+	   	var img = $('<img />', {src : data.hdurl});
+	    img.insertBefore('h2');
+ 		$(".earthVidTitle").text(data.title);
+ 		$(".earthExp").text(data.explanation);
+ 	}, error: function(error){
+ 		$(".error-message").text("An error occured");
+ 	}})
+}
+
