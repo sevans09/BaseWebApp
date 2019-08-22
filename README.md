@@ -30,20 +30,20 @@ and opening a browser and navigating to `localhost:5000`.
 
 
 ## Real-time data from Firebase 
-![firebase](firebase.png)
+![firebase](images/firebase.png)
 
 ## Dynamic API Integrations
 
 ### Weather Tracker: Used OpenWeather's API to pull high/low temperatures of a queried city.
-![weather](weather.png)
+![weather](images/weather.png)
 
 ### BTC Rate Tracker: Used CoinDesk's API to display the current trading rate of Bitcoin and past 31 days of trading data
 
 *A whole 7k more than it was worth in December!*
-![btc](btc.png)
+![btc](images/btc.png)
 
 ### Advice Generator: Used AdviceSlip.json API to generate random advice.
-![advice](advice.png)
+![advice](images/advice.png)
 
 
 ## Issues along the way
