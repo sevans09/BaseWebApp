@@ -25,6 +25,10 @@ app.get('/advice', function(request, response) {
   response.render('pages/advice');
 });
 
+app.get('/nasa', function(request, response) {
+  response.render('pages/nasa');
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
