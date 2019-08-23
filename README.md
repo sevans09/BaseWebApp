@@ -17,6 +17,15 @@ I've also recently developed an interest in web development and design, so this 
 Through this project, I became comfortable with Node and Express.js, Firebase, JavaScript and its jQuery library, and 
 integrating dynamic APIs into my app. I also was able to update the HTML and CSS for a more personalized page.
 
+## Integrating APIs
+
+One important thing I learned is that bots constantly scrape GitHub for API keys left on code. Thus, I had to keep my keychain 
+local, and never pushed or deployed code that held my keys. 
+
+After signing up for a key for the API of your choosing, you can save API keys locally to your .env file, which is never pushed to GitHub or Heroku to keep keys private and secure. The web app  reads from that file locally and pulls from Heroku’s configuration system after deployment.
+
+Most APIs also require some form of authorization. By letting only authorized users make requests, it better protects the API from abuse. I used Firebase authentication to force users to sign in before using the workout tracker.
+
 ## Running the app
 After installing the project's dependencies by executing
 ```
