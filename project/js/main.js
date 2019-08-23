@@ -156,15 +156,18 @@ function getPosts() {
 
 function getEarthPic() {
 	var url = "https://api.nasa.gov/planetary/apod?api_key="+nasaAPIKey;
-
  	$.ajax(url,{success: function(data){
  		console.log(data);
-	   	var img = $('<img />', {src : data.hdurl});
+	   	var img = $('<img />', {class: "image-responsive", src : data.hdurl, alt : "NASA EPOD"});
 	    img.insertBefore('h2');
+
+
  		$(".earthVidTitle").text(data.title);
  		$(".earthExp").text(data.explanation);
+ 		$("button").remove();
  	}, error: function(error){
  		$(".error-message").text("An error occured");
  	}})
 }
+
 
