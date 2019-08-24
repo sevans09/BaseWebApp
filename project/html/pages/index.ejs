@@ -3,17 +3,22 @@
   <% include ../helpers/head %>
 </head>
 
-<body>
+<div class = "body">
   <!-- the classes 'page-header' and 'btn btn-dark' create bootstrap components.  -->
   <!-- Check out more components here: http://getbootstrap.com/components/ -->
   <div class="page-header">
     <% include ../helpers/navbar %>
-  
-    <h1>Workout Tracking</h1>
     </div>
-    <button onClick="handleSignIn()">Login</button>
+    <br><br>
+	<h1>Welcome to my first web app!</h1>
+	<button onClick="handleSignIn()">Login</button>
+	<div class="input-append btn-group">
+	</div>
+
 
     <form onSubmit="handleMessageFormSubmit()"action="#">
+
+
       <br>Name:<br>
       <input id="post-name">
       <br>Workout:<br>
@@ -28,4 +33,5 @@
 
 </body>
 </html>
+
 </html>
