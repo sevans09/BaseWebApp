@@ -54,6 +54,9 @@ and opening a browser and navigating to `localhost:5000`.
 ### Advice Generator: Used AdviceSlip.json API to generate random advice.
 ![advice](images/advice.png)
 
+### NASA EPOD
+... and my personal favorite, NASA's Earth Picture of the Day.
+![epod](images/nasaepod.png)
 
 ## Issues along the way
 They told me again and again, and it's definitely true - Googling everything works! When I had an early roadbump trying 
