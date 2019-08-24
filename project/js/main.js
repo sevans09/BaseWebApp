@@ -76,9 +76,9 @@ function get31Days() {
  		var jsonData = JSON.parse(data); 
  		for (var i = 0; i < jsonData.bpi.length; i++) {
  			var dayPrice = jsonData.bpi[i];
- 			$(".lastMonthPrices").text(jsonData);
+ 			console.log(dayPrice);
+ 			$(".lastMonthPrices").text(dayPrice);
  		}
- 		//$(".lastMonthPrices").text(data);
  	}, error: function(error){
  		$(".error-message").text("An error occured");
  	}})
@@ -87,6 +87,23 @@ function get31Days() {
  
  function getAdvice() {
  	var url = " https://api.adviceslip.com/advice";
+
+ 	var color = Math.floor(Math.random()*16777215).toString(16);
+
+	var elements = document.getElementsByClassName('square-button');
+	for(var i = 0; i < elements.length; i++){
+		elements[i].style.backgroundColor = color;
+	}
+
+	var elements = document.getElementsByClassName('advice');
+	for(var i = 0; i < elements.length; i++){
+		elements[i].style.outlineColor = color;
+	}
+
+	var elements = document.getElementsByClassName('square-button');
+	for(var i = 0; i < elements.length; i++){
+		elements[i].style.outlineColor = color;
+	}
 
  	$.ajax(url,{success: function(data){
  		console.log(data);
@@ -156,18 +173,20 @@ function getPosts() {
 
 function getEarthPic() {
 	var url = "https://api.nasa.gov/planetary/apod?api_key="+nasaAPIKey;
+
  	$.ajax(url,{success: function(data){
- 		console.log(data);
 	   	var img = $('<img />', {class: "image-responsive", src : data.hdurl, alt : "NASA EPOD"});
 	    img.insertBefore('h2');
 
-
  		$(".earthVidTitle").text(data.title);
  		$(".earthExp").text(data.explanation);
- 		$("button").remove();
+ 		$("#button").remove();
+
+
  	}, error: function(error){
- 		$(".error-message").text("An error occured");
+ 		$(".error-message").text("An error occured. Please log in to proceed.");
  	}})
+
 }
 
 
