@@ -53,6 +53,7 @@ and opening a browser and navigating to `localhost:5000`.
 
 ### Advice Generator: Used AdviceSlip.json API to generate random advice.
 ![advice](images/advice.png)
+*Each click generates a random color of the rainbow - this one happened to be a lovely periwinkle.*
 
 ### NASA EPOD
 ... and my personal favorite, NASA's Earth Picture of the Day.
