@@ -2,7 +2,7 @@
 body {
   font-family:  Helvetica, Arial, Sans-Serif;
   text-align: center;
-  color: #424242;
+  color: white;
   font-size: 28px;
 }
 
@@ -22,6 +22,14 @@ h1 {
 
 p {
   margin-top: 80px;
+}
+
+content {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 40px;
+  font-size: 48px; 
+  color: white;
 }
 
 button {
@@ -46,7 +54,7 @@ button {
     color: #FFF;
     background: #424242;
     transition: .4s;
-    font-size: 40px;
+    font-size: 30px;
     outline-color: #424242;
     outline-style: solid;
 }
@@ -56,7 +64,7 @@ button {
     border-top: solid 2px #FFF;
 }
 
- .square-button:hover span {
+.square-button:hover span {
     padding: 0.1em 0;
 }
 
@@ -117,6 +125,9 @@ div.main_logo{
   padding-bottom: 100px;
 }
 
+.form-group {
+  color: #424242;
+}
 
 .input-append .btn.dropdown-toggle {
     float: none;
@@ -141,6 +152,30 @@ main {
 }
 
 .advice {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1em 0.5em;
+    text-decoration: none;
+    color: #424242;
+    background: #FFF;
+    outline-color: #FFF;
+    outline-style: solid;
+    left: 1px;
+    transition: .4s;
+    font-size: 30px;
+}
+
+
+.welcomeTitle {
+  font-weight: 700;
+  margin-top: 40px;
+  font-family: 'Calibri', sans-serif;
+  color: black;
+  font-size: 28px;
+}
+
+.welcomeText {
     position: relative;
     display: inline-block;
     font-weight: bold;
@@ -185,4 +220,31 @@ main {
 .page-header li a {
     color: black;
     text-decoration: none;
+}
+
+
+@import "compass/css3";
+
+@-webkit-keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.content {
+  background-color: #FCD5F2;
+  margin-top: 80px;
+  padding: 80px;
+  display: inline-block;
+  border-radius: 80px 20px 80px 20px;
+  opacity: 0;
+  
+  -webkit-animation-name: fade-in;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 1s;
+}
+
+.content.visible {
+  opacity: 1;
 }
