@@ -64,10 +64,12 @@ They told me again and again, and it's definitely true - Googling everything wor
 to parse a JSON array, Google (and Stack Overflow) saved me. I plan on continuing to use these resources for design 
 inspiration, integration help, etc.
 
-## Future Plans
+## To-Do
 I hope to eventually integrate some of these APIs into my [personal website.](https://www.sook-hee.com)
 
-- [ ] Integrate the NASA API to include the Earth image of the day.
+- [X] Integrate the NASA API to include the Earth image of the day.
+- [ ] Modularize the CSS (can't maintain this without losing my mind).
+- [ ] Add a sticky note component to help keep track of all my thoughts and ideas.
 - [ ] Integrate Nutritionix and use Firebase to store user data to track eating habits and meals, along with their nutritional
 value. A good way to keep myself and others accountable!
 - [ ] Add month-long graphs and other cryptocurrencies to BTC tracker page.
